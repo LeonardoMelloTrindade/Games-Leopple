@@ -1,0 +1,24 @@
+/* INICIO TAGS */
+
+header {
+    margin: 10px 20px;
+}
+
+header nav {
+    margin: 25px 20px;
+}
+
+/* FIM TAGS */
+
+/* INICIO CLASSES */
+
+.logotipo{
+    width: 250px;
+} 
+
+.editar_perfil {
+    margin-top: 200px;
+}
+
+/* FIM CLASSES */
+
