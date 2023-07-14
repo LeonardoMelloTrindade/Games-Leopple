@@ -25,7 +25,7 @@ export default function home() {
                     <span className="">Pesquisa</span>
                   </Nav.Link>
                   <Nav.Link className="text-light">
-                   <span className="">+ Minha Lista</span> 
+                    <span className="">+ Minha Lista</span>
                   </Nav.Link>
                   <Nav.Link className="text-light">
                     <span className="">Jogos Online</span>

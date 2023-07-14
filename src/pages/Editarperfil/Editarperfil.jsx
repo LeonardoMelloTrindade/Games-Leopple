@@ -1,6 +1,6 @@
-import BtnEditarPerfil from "../components/edtitarPerfilBtn";
-import Perfis from "../components/perfis";
-import "./perfil.css";
+import BtnEditarPerfil from "../../components/EditarPerfilBtn/edtitarPerfilBtn";
+import Perfis from "../../components/Perfis/perfis";
+import "./editarperfil.css";
 
 export default function Editarperfil() {
   return (

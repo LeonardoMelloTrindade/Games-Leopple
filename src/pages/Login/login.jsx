@@ -1,5 +1,5 @@
-import BtnEditarPerfil from "../../components/editarPerfilBtn/edtitarPerfilBtn";
-import Perfis from "../../components/perfis/perfis";
+import BtnEditarPerfil from "../../components/EditarPerfilBtn/edtitarPerfilBtn";
+import Perfis from "../../components/Perfis/perfis";
 import GameService from "../../services/games.service";
 import "./login.css";
 
