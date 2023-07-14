@@ -1,14 +1,14 @@
 import BtnEditarPerfil from "../../components/editarPerfilBtn/edtitarPerfilBtn";
 import Perfis from "../../components/perfis/perfis";
 import GameService from "../../services/games.service";
-import "./escolhaPerfil.css";
+import "./login.css";
 
-export default function escolhaPerfil() {
+export default function login() {
   const gameService = new GameService();
   gameService
     .getGames()
     .then((games) => {
-      console.log(games.results);
+      console.log(games.results[1].name);
     })
     .catch((error) => {
       console.error("Ocorreu um erro ao obter os jogos:", error);

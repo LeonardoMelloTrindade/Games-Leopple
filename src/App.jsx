@@ -1,4 +1,5 @@
-import Home from "./pages/escolhaPerfil/escolhaPerfil";
+//import Login  from "./pages/Login/login";
+import Home from "./pages/Home/home";
 
 function App() {
   return (
