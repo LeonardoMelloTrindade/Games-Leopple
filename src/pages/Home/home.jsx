@@ -1,20 +1,25 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Dropdown from "react-bootstrap/Dropdown";
+import { NavLink } from "react-bootstrap";
 import "./home.css";
 
-export default function home() {
+export default function Home() {
+
   return (
     <>
       <header className="d-flex justify-content-between">
-        <section>
-          <img
-            className="logotipo"
-            src="https://cdn.discordapp.com/attachments/1077316357550518357/1124481276531970048/Sem_Titulo-1.jpg"
-          />
+        <section className="section_canto">
+          <NavLink to={"/Home"}>
+            <img
+              className="logotipo"
+              src="https://cdn.discordapp.com/attachments/1077316357550518357/1124481276531970048/Sem_Titulo-1.jpg"
+            />
+          </NavLink>
         </section>
         <section>
-          <nav>
+          <Nav>
             <Navbar>
               <Container className="nav-container">
                 <Nav className="me-auto p-1">
@@ -36,15 +41,27 @@ export default function home() {
                 </Nav>
               </Container>
             </Navbar>
-          </nav>
+          </Nav>
         </section>
-        <section>
-          <img
-            className="img-perfil"
-            src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/BA2B0A0DBDAED26E6546A7533238E3F41F811DD1D3B20DF41992D856C64D9CDB/scale?width=280&aspectRatio=1.00&format=png"
-          />
+        <section className="section_canto">
+          <Dropdown>
+            <Dropdown.Toggle className="dropdown bg-black border-black" />
+
+            <Dropdown.Menu className=" text-white bg-secondary">
+              <Dropdown.Item>
+                Editar perfis
+              </Dropdown.Item>
+              <Dropdown.Item>
+                Sair
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </section>
       </header>
+
+      <main>
+        <header className="img_bg"></header>
+      </main>
     </>
   );
 }

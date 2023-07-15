@@ -4,13 +4,29 @@
 
 section {
     font-weight: bolder;
-    margin: 15px 15px 0 0;
 }
 
-.img-perfil {
-    width: 65px;
-    height: 65px;
+.section_canto {
+    margin-top: 18px;
+    cursor: pointer;
+}
+
+nav {
+    font-size: 1.1em;
+}
+
+a span {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     
+}
+
+.dropdown {
+    width: 70px;
+    height: 70px;
+    background-size: 65px 65px;
+    background-repeat: no-repeat;
+    background-image: url('https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/BA2B0A0DBDAED26E6546A7533238E3F41F811DD1D3B20DF41992D856C64D9CDB/scale?width=280&aspectRatio=1.00&format=png');
 }
 
 div > a {
