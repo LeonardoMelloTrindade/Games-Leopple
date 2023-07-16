@@ -6,7 +6,7 @@ export default class GameService {
     try {
       const response = await Api.get("/games", {
         params: {
-          genres: 'shooter'
+         
         }
       })
       return response.data;

@@ -1,18 +1,9 @@
+import { NavLink } from "react-router-dom";
 import BtnEditarPerfil from "../../components/EditarPerfilBtn/edtitarPerfilBtn";
 import Perfis from "../../components/Perfis/perfis";
-import GameService from "../../services/games.service";
 import "./login.css";
 
 export default function login() {
-  const gameService = new GameService();
-  gameService
-    .getGames()
-    .then((games) => {
-      console.log(games.results);
-    })
-    .catch((error) => {
-      console.error("Ocorreu um erro ao obter os jogos:", error);
-    });
 
   return (
     <>
@@ -23,7 +14,9 @@ export default function login() {
         />
 
         <nav>
-          <BtnEditarPerfil editarPerfil="Editar Perfis" min={2} max={10} />
+          <NavLink to={"/EditarPerfil"}>
+            <BtnEditarPerfil editarPerfil="Editar Perfis" min={2} max={10} />
+          </NavLink>
         </nav>
       </header>
 

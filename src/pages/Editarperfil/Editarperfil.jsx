@@ -13,7 +13,7 @@ export default function Editarperfil() {
         />
 
         <nav>
-          <NavLink to={"/Login"}>
+          <NavLink to={"/"}>
             <BtnEditarPerfil editarPerfil="Pronto" min={2} max={10} />
           </NavLink>
         </nav>

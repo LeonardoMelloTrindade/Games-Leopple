@@ -7,7 +7,7 @@ export default function routes() {
   return (
     <Router>
       <Routes>
-        <Route path="/Login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/EditarPerfil" element={<EditarPerfil />} />
       </Routes>

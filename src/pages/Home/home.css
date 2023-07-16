@@ -1,8 +1,10 @@
+/*HEADER*/
+
 .logotipo{
     width: 250px;
 }
 
-section {
+header section {
     font-weight: bolder;
 }
 
@@ -32,6 +34,20 @@ a span {
 .under {
     text-decoration: none;
     font-weight: bold;
+}
+
+/*MAIN*/
+
+main {
+    margin: 0px;
+    height: 800px;
+}
+
+.img_bg {
+    height: 70%;
+    background-image: url("https://wallpapercrafter.com/th800/58156-the-last-of-us-games-ps-games-hd.jpg");
+    background-repeat: repeat-x;
+    background-size: contain;
 }
 
 /*LINK PERSONALIZADO*/

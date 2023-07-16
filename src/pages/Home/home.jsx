@@ -1,12 +1,29 @@
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
-import { NavLink } from "react-router-dom";
 import Carrossel from "../../components/carrossel/carrossel";
+import GameService from "../../services/games.service";
 import "./home.css";
 
 export default function Home() {
+  const [imagemMain, SetImagemMain] = useState([]);
+  const gameService = new GameService();
+
+  useEffect(() => {
+    gameService
+      .getGames()
+      .then((games) => {
+        console.log(games.results)
+        SetImagemMain(games.results);
+      })
+      .catch((error) => {
+        console.error("Ocorreu um erro ao obter os jogos:", error);
+      });
+  }, []);
+
   return (
     <>
       <header className="d-flex justify-content-between">
@@ -23,7 +40,7 @@ export default function Home() {
             <Navbar>
               <Container className="nav-container">
                 <Nav className="me-auto p-1">
-                  <Nav.Link className="text-light">
+                  <Nav.Link className="text-light" href="/Home">
                     <span>Início</span>
                   </Nav.Link>
                   <Nav.Link className="text-light">
@@ -51,7 +68,7 @@ export default function Home() {
               <Dropdown.Item href="/EditarPerfil" className="dropdown-item">
                 <span className="under text-black">Editar perfis</span>
               </Dropdown.Item>
-              <Dropdown.Item href="/Login">
+              <Dropdown.Item href="/">
                 <span className="under text-black">Sair</span>
               </Dropdown.Item>
             </Dropdown.Menu>
@@ -60,9 +77,9 @@ export default function Home() {
       </header>
 
       <main>
-        <header className="img_bg"></header>
+        <div className="img_bg"></div>
         <section>
-          <Carrossel />
+          <Carrossel titulo="Em alta" jogos={imagemMain}/>
         </section>
       </main>
     </>
