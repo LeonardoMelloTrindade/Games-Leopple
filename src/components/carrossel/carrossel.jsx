@@ -47,11 +47,11 @@ export default class carrossel extends Component {
     return (
       <div className="div_flex">
         <article className="container_carrossel">
-          <h2> {titulo} </h2>
+          <h2 className="titulo_slide"> {titulo} </h2>
           <Slider {...settings}>
             {jogos.map((slide, index) => (
-              <section key={index} className="container_slide">
-                <img className="img_carrossel" key={slide.name} src={slide.background_image}/>
+              <section key={slide.index} id={slide.id} className="container_slide">
+                <img className="img_carrossel " alt={slide.name} src={slide.background_image}/>
               </section>
             ))}
           </Slider>

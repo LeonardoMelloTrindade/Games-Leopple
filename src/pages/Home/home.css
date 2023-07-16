@@ -48,6 +48,7 @@ main {
     background-image: url("https://wallpapercrafter.com/th800/58156-the-last-of-us-games-ps-games-hd.jpg");
     background-repeat: repeat-x;
     background-size: contain;
+    box-shadow: inset 0px -100px 152px 10px rgba(0, 0, 0, 1);
 }
 
 /*LINK PERSONALIZADO*/

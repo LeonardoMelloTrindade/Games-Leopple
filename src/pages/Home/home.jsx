@@ -16,8 +16,17 @@ export default function Home() {
     gameService
       .getGames()
       .then((games) => {
-        console.log(games.results)
+        console.log(games.results);
         SetImagemMain(games.results);
+      })
+      .catch((error) => {
+        console.error("Ocorreu um erro ao obter os jogos:", error);
+      });
+
+    gameService
+      .getGamespPerId("grand-theft-auto-v")
+      .then((game) => {
+        console.log(game);
       })
       .catch((error) => {
         console.error("Ocorreu um erro ao obter os jogos:", error);
@@ -79,7 +88,7 @@ export default function Home() {
       <main>
         <div className="img_bg"></div>
         <section>
-          <Carrossel titulo="Em alta" jogos={imagemMain}/>
+          <Carrossel titulo="Em alta" jogos={imagemMain} />
         </section>
       </main>
     </>
