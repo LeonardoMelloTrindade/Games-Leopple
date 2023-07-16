@@ -8,7 +8,7 @@ export default function login() {
   gameService
     .getGames()
     .then((games) => {
-      console.log(games.results[1].name);
+      console.log(games.results);
     })
     .catch((error) => {
       console.error("Ocorreu um erro ao obter os jogos:", error);

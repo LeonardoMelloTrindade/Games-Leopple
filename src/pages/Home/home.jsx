@@ -2,11 +2,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
-import { NavLink } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import Carrossel from "../../components/carrossel/carrossel";
 import "./home.css";
 
 export default function Home() {
-
   return (
     <>
       <header className="d-flex justify-content-between">
@@ -48,11 +48,11 @@ export default function Home() {
             <Dropdown.Toggle className="dropdown bg-black border-black" />
 
             <Dropdown.Menu className=" text-white bg-secondary">
-              <Dropdown.Item>
-                Editar perfis
+              <Dropdown.Item href="/EditarPerfil" className="dropdown-item">
+                <span className="under text-black">Editar perfis</span>
               </Dropdown.Item>
-              <Dropdown.Item>
-                Sair
+              <Dropdown.Item href="/Login">
+                <span className="under text-black">Sair</span>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -61,6 +61,9 @@ export default function Home() {
 
       <main>
         <header className="img_bg"></header>
+        <section>
+          <Carrossel />
+        </section>
       </main>
     </>
   );

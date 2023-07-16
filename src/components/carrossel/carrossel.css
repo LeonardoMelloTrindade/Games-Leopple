@@ -1,0 +1,8 @@
+.container-carrossel {
+    width: 97%;
+}
+
+.div-flex {
+    display: flex;
+    justify-content: center;
+}

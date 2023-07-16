@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import BtnEditarPerfil from "../../components/EditarPerfilBtn/edtitarPerfilBtn";
 import Perfis from "../../components/Perfis/perfis";
 import "./editarperfil.css";
@@ -12,7 +13,9 @@ export default function Editarperfil() {
         />
 
         <nav>
-          <BtnEditarPerfil editarPerfil="Pronto" min={2} max={10} />
+          <NavLink to={"/Login"}>
+            <BtnEditarPerfil editarPerfil="Pronto" min={2} max={10} />
+          </NavLink>
         </nav>
       </header>
 

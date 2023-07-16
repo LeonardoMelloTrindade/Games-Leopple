@@ -29,13 +29,20 @@ a span {
     background-image: url('https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/BA2B0A0DBDAED26E6546A7533238E3F41F811DD1D3B20DF41992D856C64D9CDB/scale?width=280&aspectRatio=1.00&format=png');
 }
 
-div > a {
+.under {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*LINK PERSONALIZADO*/
+
+.me-auto > .nav-link {
     position: relative;
     text-decoration: none;
     text-align: center;
 }
 
-div > a:before {
+.me-auto > .nav-link:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -50,8 +57,10 @@ div > a:before {
     transition: all 0.3s ease-in-out 0s;
 }
 
-div > a:hover:before {
+.me-auto > .nav-link:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
+
+/*LINK PERSONALIZADO*/
