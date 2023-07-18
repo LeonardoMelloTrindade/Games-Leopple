@@ -2,12 +2,12 @@ import Api from "./api.service";
 
 export default class GameService {
 
-  async getGames() {
+  async getGames(page) {
     try {
       const response = await Api.get("/games", {
         params: {
-         page: 1,
-         page_size: 30
+         page: parseInt(page),
+         page_size: 20
         }
       })
       return response.data;
@@ -16,11 +16,11 @@ export default class GameService {
       throw error;
     }
   }
-  async getGamespPerId(ID) {
+  async getGamespPerId(id) {
     try {
     const response = await Api.get(`/games`, {
         params: {
-          id: ID
+          id: id
         }
       })
       return response.data;
@@ -29,4 +29,21 @@ export default class GameService {
       throw error;
     }
   }
+  async getGamespPerGender() {
+    try {
+    const response = await Api.get(`/genres`, {
+        params: {
+          ordering: "name",
+          page: 1,
+          page_size: 20
+        }
+      })
+      return response.data;
+    } catch (error) {
+      console.error("Ocorreu um erro ao obter o jogo pelo ID:", error);
+      throw error;
+    }
+  }
+
+
 }

@@ -9,28 +9,31 @@ import GameService from "../../services/games.service";
 import "./home.css";
 
 export default function Home() {
-  const [imagemMain, SetImagemMain] = useState([]);
+  const [jogosEmAlta, SetJogosEmAlta] = useState([]);
+  const [jogosDeAcao, SetJogosDeAcao] = useState([]);
   const gameService = new GameService();
 
   useEffect(() => {
     gameService
-      .getGames()
+      .getGames('1')
       .then((games) => {
         console.log(games.results);
-        SetImagemMain(games.results);
+        SetJogosEmAlta(games.results);
       })
       .catch((error) => {
         console.error("Ocorreu um erro ao obter os jogos:", error);
+      });
+    gameService
+      .getGames('2')
+      .then((games) => {
+        console.log(games.results);
+        SetJogosDeAcao(games.results);
+      })
+      .catch((error) => {
+        console.error("Ocorreu um erro ao obter os jogos de acordo com o genero:", error);
       });
 
-    gameService
-      .getGamespPerId("grand-theft-auto-v")
-      .then((game) => {
-        console.log(game);
-      })
-      .catch((error) => {
-        console.error("Ocorreu um erro ao obter os jogos:", error);
-      });
+    
   }, []);
 
   return (
@@ -88,7 +91,8 @@ export default function Home() {
       <main>
         <div className="img_bg"></div>
         <section>
-          <Carrossel titulo="Em alta" jogos={imagemMain} />
+          <Carrossel titulo="Em alta" jogos={jogosEmAlta} />
+          <Carrossel titulo="Ação" jogos={jogosDeAcao}/>
         </section>
       </main>
     </>

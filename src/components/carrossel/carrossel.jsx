@@ -50,7 +50,7 @@ export default class carrossel extends Component {
           <h2 className="titulo_slide"> {titulo} </h2>
           <Slider {...settings}>
             {jogos.map((slide, index) => (
-              <section key={slide.index} id={slide.id} className="container_slide">
+              <section key={index} id={slide.id} className="container_slide">
                 <img className="img_carrossel " alt={slide.name} src={slide.background_image}/>
               </section>
             ))}
