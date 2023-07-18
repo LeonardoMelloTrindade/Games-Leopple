@@ -51,10 +51,6 @@ main {
     box-shadow: inset 0px -100px 152px 10px rgba(0, 0, 0, 1);
 }
 
-.carrossel {
-    margin-top: 10px;
-}
-
 /*LINK PERSONALIZADO*/
 
 .me-auto > .nav-link {
