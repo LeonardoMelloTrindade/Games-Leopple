@@ -11,7 +11,7 @@ import "./home.css";
 export default function Home() {
   const [jogosEmAlta, SetJogosEmAlta] = useState([]);
   const [jogosDeAcao, SetJogosDeAcao] = useState([]);
-  const [divMain, SetDivMain] = useState({})
+  const [divMain, SetDivMain] = useState([]);
   const gameService = new GameService();
 
   useEffect(() => {
@@ -36,7 +36,6 @@ export default function Home() {
           error
         );
       });
-   
   }, []);
 
   const handleSlideHover = (game_slug) => {
@@ -44,7 +43,7 @@ export default function Home() {
     gameService
       .getGamesPerSlug(game_slug)
       .then((gameData) => {
-        console.log(gameData);
+        //console.log(gameData);
         SetDivMain(gameData);
       })
       .catch((error) => {
@@ -105,15 +104,29 @@ export default function Home() {
       </header>
 
       <main>
-        <div className="img_bg" style={{ backgroundImage: `url(${divMain.background_image_additional})` }}>
-
+        <div
+          className="img_bg"
+          style={{
+            backgroundImage: `url(${divMain.background_image_additional})`,
+            
+          }}
+        >
           <h2>{divMain.name}</h2>
           <p>{divMain.released}</p>
-          <h5>{divMain.stores.map((stores) => (
-            console.log(stores)
-            
-          ))}</h5>
-
+          <article>
+            {divMain.length === 0 ? (
+              <span></span>
+            ) : (
+              divMain.stores.map((storeItem, index) => {
+                const nameStore = storeItem.store.name;
+                return (
+                  <span className="infoMain" key={index}>
+                    {nameStore} * &nbsp;
+                  </span>
+                );
+              })
+            )}
+          </article>
         </div>
         <section>
           <Carrossel
