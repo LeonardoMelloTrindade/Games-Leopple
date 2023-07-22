@@ -16,11 +16,11 @@ export default class GameService {
       throw error;
     }
   }
-  async getGamespPerId(id) {
+  async getGamesPerSlug(SLUG) {
     try {
-    const response = await Api.get(`/games`, {
+    const response = await Api.get(`/games/${SLUG}`, {
         params: {
-          id: id
+          
         }
       })
       return response.data;
@@ -36,6 +36,19 @@ export default class GameService {
           ordering: "name",
           page: 1,
           page_size: 20
+        }
+      })
+      return response.data;
+    } catch (error) {
+      console.error("Ocorreu um erro ao obter o jogo pelo ID:", error);
+      throw error;
+    }
+  }
+  async getGamesScreenshots(ID) {
+    try {
+    const response = await Api.get(`/games/${ID}/screenshots`, {
+        params: {
+         
         }
       })
       return response.data;

@@ -3,12 +3,9 @@ import { Component } from "react";
 import "./carrossel.css";
 
 export default class carrossel extends Component {
-
-  
   render() {
-    let {titulo, jogos} = this.props
+    let { titulo, jogos, onSlideHover } = this.props;
 
-    
 
     var settings = {
       dots: true,
@@ -50,8 +47,17 @@ export default class carrossel extends Component {
           <h2 className="titulo_slide"> {titulo} </h2>
           <Slider {...settings}>
             {jogos.map((slide, index) => (
-              <section key={index} id={slide.id} className="container_slide">
-                <img className="img_carrossel " alt={slide.name} src={slide.background_image}/>
+              <section
+                key={index}
+                id={slide.id}
+                className="container_slide"
+                onMouseOver={() => onSlideHover(slide.slug)}
+              >
+                <img
+                  className="img_carrossel "
+                  alt={slide.name}
+                  src={slide.background_image}
+                />
               </section>
             ))}
           </Slider>

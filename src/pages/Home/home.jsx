@@ -11,30 +11,46 @@ import "./home.css";
 export default function Home() {
   const [jogosEmAlta, SetJogosEmAlta] = useState([]);
   const [jogosDeAcao, SetJogosDeAcao] = useState([]);
+  const [divMain, SetDivMain] = useState({})
   const gameService = new GameService();
 
   useEffect(() => {
     gameService
-      .getGames('1')
+      .getGames("1")
       .then((games) => {
-        console.log(games.results);
+        //console.log(games.results);
         SetJogosEmAlta(games.results);
       })
       .catch((error) => {
         console.error("Ocorreu um erro ao obter os jogos:", error);
       });
     gameService
-      .getGames('2')
+      .getGames("2")
       .then((games) => {
-        console.log(games.results);
+        //console.log(games.results);
         SetJogosDeAcao(games.results);
       })
       .catch((error) => {
-        console.error("Ocorreu um erro ao obter os jogos de acordo com o genero:", error);
+        console.error(
+          "Ocorreu um erro ao obter os jogos de acordo com o genero:",
+          error
+        );
       });
-
-    
+   
   }, []);
+
+  const handleSlideHover = (game_slug) => {
+    console.log(game_slug);
+    gameService
+      .getGamesPerSlug(game_slug)
+      .then((gameData) => {
+        console.log(gameData);
+        SetDivMain(gameData);
+      })
+      .catch((error) => {
+        console.error("Ocorreu um erro ao obter o jogo pelo slug:", error);
+      });
+  };
 
   return (
     <>
@@ -89,10 +105,27 @@ export default function Home() {
       </header>
 
       <main>
-        <div className="img_bg"></div>
+        <div className="img_bg" style={{ backgroundImage: `url(${divMain.background_image_additional})` }}>
+
+          <h2>{divMain.name}</h2>
+          <p>{divMain.released}</p>
+          <h5>{divMain.stores.map((stores) => (
+            console.log(stores)
+            
+          ))}</h5>
+
+        </div>
         <section>
-          <Carrossel titulo="Em alta" jogos={jogosEmAlta} />
-          <Carrossel titulo="Ação" jogos={jogosDeAcao}/>
+          <Carrossel
+            titulo="Em alta"
+            jogos={jogosEmAlta}
+            onSlideHover={handleSlideHover}
+          />
+          <Carrossel
+            titulo="Ação"
+            jogos={jogosDeAcao}
+            onSlideHover={handleSlideHover}
+          />
         </section>
       </main>
     </>
