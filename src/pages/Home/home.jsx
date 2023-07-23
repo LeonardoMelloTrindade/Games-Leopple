@@ -5,12 +5,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import Carrossel from "../../components/carrossel/carrossel";
+import AddLista from "../../components/AddListaBtn/addLista";
 import GameService from "../../services/games.service";
 import "./home.css";
 
 export default function Home() {
   const [jogosEmAlta, SetJogosEmAlta] = useState([]);
-  const [jogosDeAcao, SetJogosDeAcao] = useState([]);
+  const [primeiroJogos, SetprimeiroJogos] = useState([]);
+  const [recomendados, SetRecomendados] = useState([]);
   const [divMain, SetDivMain] = useState([]);
   const gameService = new GameService();
 
@@ -19,7 +21,7 @@ export default function Home() {
       .getGames("1")
       .then((games) => {
         //console.log(games.results);
-        SetJogosEmAlta(games.results);
+        SetprimeiroJogos(games.results);
       })
       .catch((error) => {
         console.error("Ocorreu um erro ao obter os jogos:", error);
@@ -28,18 +30,29 @@ export default function Home() {
       .getGames("2")
       .then((games) => {
         //console.log(games.results);
-        SetJogosDeAcao(games.results);
+        SetJogosEmAlta(games.results);
       })
       .catch((error) => {
         console.error(
-          "Ocorreu um erro ao obter os jogos de acordo com o genero:",
+          "Ocorreu um erro ao obter os jogos:",
+          error
+        );
+      });
+    gameService
+      .getGames("3")
+      .then((games) => {
+        //console.log(games.results);
+        SetRecomendados(games.results);
+      })
+      .catch((error) => {
+        console.error(
+          "Ocorreu um erro ao obter os jogos:",
           error
         );
       });
   }, []);
 
   const handleSlideHover = (game_slug) => {
-    console.log(game_slug);
     gameService
       .getGamesPerSlug(game_slug)
       .then((gameData) => {
@@ -111,8 +124,8 @@ export default function Home() {
             
           }}
         >
-          <h2>{divMain.name}</h2>
-          <p>{divMain.released}</p>
+          <h2 className="nomeJogo">{divMain.name}</h2>
+          <p className="LancamentoJogo">{divMain.released}</p>
           <article>
             {divMain.length === 0 ? (
               <span></span>
@@ -126,17 +139,22 @@ export default function Home() {
                 );
               })
             )}
+            <AddLista nome="Adicionar a lista"/>
           </article>
         </div>
-        <section>
+        <section className="carrossel">
+          <Carrossel
+            jogos={primeiroJogos}
+            onSlideHover={handleSlideHover}
+          />
           <Carrossel
             titulo="Em alta"
             jogos={jogosEmAlta}
             onSlideHover={handleSlideHover}
           />
           <Carrossel
-            titulo="Ação"
-            jogos={jogosDeAcao}
+            titulo="Recomendados para você"
+            jogos={recomendados}
             onSlideHover={handleSlideHover}
           />
         </section>

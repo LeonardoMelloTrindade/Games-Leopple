@@ -17,6 +17,7 @@
     width: 360px;
     height: 200px;
     border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
 }
 
 .img_carrossel:hover {
@@ -31,6 +32,32 @@
     margin-top: 15px;
 }
 
+.container_slide {
+    position: relative;
+  }
+  
+  .slide-content {
+    position: relative;
+  }
+  
+  .slide-name {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: bold;
+    visibility: hidden; 
+}
+
+.nameJogo {
+    font-size: 14px;
+    color: #475dda;
+
+  }
+  
+  .container_slide:hover .slide-name {
+    visibility: visible; 
+  }
 @media (max-width: 1560px) {
 	.img_carrossel {
         margin-top: 5px;

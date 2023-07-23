@@ -1,11 +1,12 @@
 import Slider from "react-slick";
 import { Component } from "react";
+import { BsPlus } from "react-icons/bs";
 import "./carrossel.css";
+import { Button } from "react-bootstrap";
 
 export default class carrossel extends Component {
   render() {
     let { titulo, jogos, onSlideHover } = this.props;
-
 
     var settings = {
       dots: true,
@@ -16,7 +17,16 @@ export default class carrossel extends Component {
       initialSlide: 0,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1824,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 1124,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
@@ -53,11 +63,16 @@ export default class carrossel extends Component {
                 className="container_slide"
                 onMouseOver={() => onSlideHover(slide.slug)}
               >
-                <img
-                  className="img_carrossel "
-                  alt={slide.name}
-                  src={slide.background_image}
-                />
+                <div className="slide-content">
+                  <img
+                    className="img_carrossel"
+                    alt={slide.name}
+                    src={slide.background_image}
+                  />
+                  <span className="slide-name">
+                    <p className="nameJogo">{slide.name}</p>
+                  </span>
+                </div>
               </section>
             ))}
           </Slider>

@@ -44,19 +44,20 @@ main {
 }
 
 .img_bg {
-    padding: 10px 50px;
+    padding: 50px 80px;
     height: 70%;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: inset 0px -100px 152px 10px rgba(0, 0, 0, 1);
-}
-
-.img_bg:hover {
-    transition: 1s;
+    box-shadow: inset 0px -100px 170px 50px rgba(0, 0, 0, 1);
 }
 
 .infoMain {
   font-size: 13px;
+}
+
+.carrossel {
+    position: relative;
+    bottom: 50px;
 }
 
 /*LINK PERSONALIZADO*/
