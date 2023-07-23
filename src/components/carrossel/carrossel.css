@@ -24,6 +24,7 @@
     scale: 1.08;
     transition: 0.4s;
     border-radius: 10px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5); 
 }
 
 .titulo_slide {
@@ -34,10 +35,13 @@
 
 .container_slide {
     position: relative;
+    
   }
   
   .slide-content {
     position: relative;
+    box-shadow: none; 
+    transition: box-shadow 0.3s ease;
   }
   
   .slide-name {
@@ -57,7 +61,12 @@
   
   .container_slide:hover .slide-name {
     visibility: visible; 
+    
   }
+  .container_slide:hover .slide-content {
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5); 
+  }
+
 @media (max-width: 1560px) {
 	.img_carrossel {
         margin-top: 5px;

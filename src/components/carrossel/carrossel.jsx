@@ -1,12 +1,10 @@
 import Slider from "react-slick";
 import { Component } from "react";
-import { BsPlus } from "react-icons/bs";
 import "./carrossel.css";
-import { Button } from "react-bootstrap";
 
 export default class carrossel extends Component {
   render() {
-    let { titulo, jogos, onSlideHover } = this.props;
+    const { titulo, jogos, onSlideHover } = this.props;
 
     var settings = {
       dots: true,

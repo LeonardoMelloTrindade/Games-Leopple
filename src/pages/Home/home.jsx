@@ -50,7 +50,7 @@ export default function Home() {
           error
         );
       });
-  }, []);
+  });
 
   const handleSlideHover = (game_slug) => {
     gameService
