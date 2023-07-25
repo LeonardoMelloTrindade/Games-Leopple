@@ -8,7 +8,8 @@ export default class carrossel extends Component {
   render() {
     let {titulo, jogos} = this.props
 
-    
+    console.log(window.screen.width)
+    console.log(window.screen.height)
 
     var settings = {
       dots: true,
@@ -19,20 +20,27 @@ export default class carrossel extends Component {
       initialSlide: 0,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1624,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: 4,
+            slidesToScroll: 1,
             infinite: true,
             dots: true,
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            initialSlide: 0,
+          },
+        },
+        {
+          breakpoint: 480,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 0,
+            slidesToScroll: 0,
           },
         },
         {

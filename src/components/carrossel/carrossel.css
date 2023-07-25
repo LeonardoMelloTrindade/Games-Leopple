@@ -17,36 +17,18 @@
     width: 360px;
     height: 200px;
     border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
 }
 
 .img_carrossel:hover {
     scale: 1.08;
     transition: 0.4s;
-    border-radius: 10px;
+    border-radius: 25px;
 }
 
 .titulo_slide {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
     margin-top: 15px;
-}
-
-@media (max-width: 1560px) {
-	.img_carrossel {
-        margin-top: 5px;
-        margin-left: 10px;
-        width: 300px;
-        height: 180px;
-        border: 1px solid rgb(0, 0, 0);
-    }
-}
-@media (max-width: 800px) {
-	.img_carrossel {
-        margin-top: 5px;
-        margin-left: 10px;
-        width: 190px;
-        height: 150px;
-        border: 1px solid rgb(0, 0, 0);
-    }
 }
 
