@@ -13,7 +13,14 @@ export default function Home() {
   const [jogosEmAlta, SetJogosEmAlta] = useState([]);
   const [primeiroJogos, SetprimeiroJogos] = useState([]);
   const [recomendados, SetRecomendados] = useState([]);
-  const [divMain, SetDivMain] = useState([]);
+  const [divMain, SetDivMain] = useState(
+    {
+      name: 'Grand Theft Auto V',
+      background_image_additional: 'https://media.rawg.io/media/resize/1920/-/screenshots/422/422565e2157ceb47b51014f3f34d4840.jpg',
+      released: 'Sep 17, 2013',
+      stores: []
+    }
+  );
   const gameService = new GameService();
 
   useEffect(() => {
@@ -53,6 +60,8 @@ export default function Home() {
   });
 
   const handleSlideHover = (game_slug) => {
+    console.log(game_slug)
+    
     gameService
       .getGamesPerSlug(game_slug)
       .then((gameData) => {
